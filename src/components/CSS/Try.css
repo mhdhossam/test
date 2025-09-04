@@ -1,0 +1,24 @@
+:root{
+  --main-color1:#dc82a9;
+  --main-color2:#d3779b;
+  --main-color3:#c9638b;
+  --main-color4:#595959;
+  --main-color5:#7b7b7a;
+  --main-color6:#f3f6f4;
+  }
+  
+  .container{
+    text-align: center;
+  }
+  
+  .slick-slide img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+}
+  
+  .slider-container{
+    width: 98%;
+    background-color: white;
+    }

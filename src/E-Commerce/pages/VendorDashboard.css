@@ -1,0 +1,229 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--main-color6);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--main-color4);
+}
+
+:root {
+    --main-color1: #dc82a9;
+    --main-color2: #d3779b;
+    --main-color3: #c9638b;
+    --main-color4: #595959;
+    --main-color5: #7b7b7a;
+    --main-color6: #f3f6f4;
+    --main-color7: linear-gradient(to right, #7E3E5C, #3D1E30);
+    --main-color8: #8D4C5C;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.vendor-dashboard {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.dashboard-header h2 {
+    font-size: 30px;
+    color: var(--main-color4);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+}
+
+.dashboard-header span {
+    color: var(--main-color3);
+    font-weight: bold;
+}
+
+.dashboard-header p {
+    color: var(--main-color5);
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.action-btn {
+    padding: 12px 18px;
+    background: var(--main-color7);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 5px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: var(--main-color3);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 14px;
+    animation: errorBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes errorBlink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.product-table th,
+.product-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.product-table th {
+    background-color: var(--main-color6);
+    color: var(--main-color4);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.product-table td {
+    background-color: #fff;
+    color: var(--main-color5);
+}
+
+.product-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.product-table tr:hover {
+    background-color: var(--main-color1);
+    color: #fff;
+    transform: scale(1.02);
+}
+
+.edit-btn {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.edit-btn:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+.cart-product img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.cart-product img:hover {
+    transform: scale(1.1);
+}
+
+.cart-img {
+    width: 85.71px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.cart-img:hover {
+    transform: scale(1.1);
+}
+/* Centering the pagination */
+.pagination-container {
+    display: flex;
+    justify-content: center; /* Center the pagination */
+    align-items: center;     /* Vertically center if needed */
+    width: 100%;
+    margin-top: 20px;        /* Add some spacing between the table and pagination */
+  }
+  
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vendor-dashboard {
+        padding: 15px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 24px;
+    }
+
+    .product-table th,
+    .product-table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .action-btn {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    .cart-img {
+        width: 100px;
+        height: 140px;
+    }
+
+    .product-table td,
+    .product-table th {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,101 @@
+.countdown-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, #e91e63, #9c27b0);
+  color: white;
+  height: 100vh;
+  font-family: "Arial", sans-serif;
+  padding: 20px; /* Padding to avoid text being too close to screen edges */
+}
+
+.countdown-timer h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.countdown-timer p {
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.timer span {
+  margin: 0 15px;
+}
+
+.notify-button {
+  padding: 10px 20px;
+  background-color: white;
+  color: #e91e63;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.notify-button:hover {
+  background-color: #f8bbd0;
+}
+
+/* Media query for tablets and small screens (max-width: 768px) */
+@media (max-width: 768px) {
+  .countdown-timer {
+    padding: 15px;
+  }
+
+  .countdown-timer h1 {
+    font-size: 1.5rem; /* Smaller font size for headers */
+  }
+
+  .countdown-timer p {
+    font-size: 1rem; /* Reduce font size for paragraph text */
+  }
+
+  .timer {
+    font-size: 2rem; 
+    flex-direction: column;
+  }
+
+  .timer span {
+    margin: 20px 10px; 
+  }
+
+  .notify-button {
+    font-size: 0.9rem; 
+    padding: 8px 16px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-timer {
+    padding: 10px; /* Extra padding for very small screens */
+  }
+
+  .countdown-timer h1 {
+    font-size: 1.2rem; /* Further reduce header size */
+  }
+
+  .timer {
+    font-size: 1.8rem; /* Further reduce timer font size */
+    flex-direction: column;
+  }
+
+  .timer span {
+    margin: 20px 10px; /* Reduce spacing for the timer */
+  }
+
+  .notify-button {
+    font-size: 0.8rem; /* Smaller button text */
+    padding: 6px 12px; /* Smaller padding for button */
+  }
+}

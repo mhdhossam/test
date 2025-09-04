@@ -1,0 +1,45 @@
+
+
+:root{
+    --main-color1:#dc82a9;
+    --main-color2:#d3779b;
+    --main-color3:#c9638b;
+    --main-color4:#595959;
+    --main-color5:#7b7b7a;
+    --main-color6:#f3f6f4;
+    }
+
+.txt-contact{
+    text-align: center;
+    padding: 30px;
+    font-size: 50px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: var(--main-color6);
+    
+  }
+  
+  .txt-contact span{
+    color: var(--main-color3);
+  }
+  
+  .txt-contact h3{
+      font-size: 35px;
+      font-weight: 200;
+      text-transform: capitalize;
+      margin-top: 40px;
+  
+  }
+  
+  .txt-contact p{
+       font-size: 15px;
+       padding-top: 25px;
+      text-transform: capitalize;
+      color: var(--main-color4);
+  }
+  
+  .txt-contact h3 span{
+    color: var(--main-color2);
+    font-weight: bold;
+  }
+  

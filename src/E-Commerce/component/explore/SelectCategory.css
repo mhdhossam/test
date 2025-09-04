@@ -1,0 +1,52 @@
+
+:root{
+  --main-color1:#dc82a9;
+  --main-color2:#d3779b;
+  --main-color3:#c9638b;
+  --main-color4:#595959;
+  --main-color5:#7b7b7a;
+  --main-color6:#f3f6f4;
+  --main-color7:linear-gradient(to right, #7E3E5C,#3D1E30);
+  --main-color8:#8D4C5C;
+  }
+
+  .select-category {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 15%;
+    margin-left: 15px;
+  }
+  
+  .select-category label {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--main-color3);
+    color: var(--main-color3);
+  }
+  
+  .select-category select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: var(--main-color3);
+    font-weight: 600;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    
+  }
+  
+  .select-category select:focus {
+    border-color: var(--main-color3);
+    box-shadow: 0 0 8px rgba(192, 22, 118, 0.5);
+  }
+  
+  .select-category option {
+    padding: 10px;
+    color:var(--main-color3);
+  }
+  

@@ -1,0 +1,421 @@
+:root {
+  --main-color1: #dc82a9;
+  --main-color2: #d3779b;
+  --main-color3: #c9638b;
+  --main-color4: #595959;
+  --main-color5: #7b7b7a;
+  --main-color6: #f3f6f4;
+  --main-color7: linear-gradient(to right, #7E3E5C, #3D1E30);
+  --primary-font: 'Arial', sans-serif;
+  --secondary-font: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: var(--primary-font);
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+} */
+
+.orders-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background-image: var(--main-color7);
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  color: #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orders-container h2{
+  text-align: center;
+  margin: 15px;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  color: var(--main-color6);
+}
+
+.orders-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.order-card {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--main-color6);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Order Title and Status */
+.order-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--main-color2);
+  margin-bottom: 10px;
+}
+
+.order-card p {
+  font-size: 1.5rem;
+  color: var(--main-color4);
+  margin: 5px 0;
+}
+
+/* Order Items List */
+.order-card h4 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--main-color3);
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.order-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-card li {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.order-card li:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.order-title {
+  font-size: 1.9rem;
+  color: var(--main-color2);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.no-orders-message{
+  color: white;
+  text-align: center;
+  font-family: var(--secondary-font);
+  font-size: 1.2rem;
+  
+}
+
+.order-id,
+.order-status,
+.order-total-price {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: var(--main-color4);
+}
+
+.order-items-title {
+  font-size: 1.5rem;
+  color: var(--main-color3);
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.order-item {
+  background-color: #fff;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.order-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.order-item p {
+  font-size: 1rem;
+  font-weight: 350px;
+  margin: 10px 0;
+  color: #555;
+  font-family: var(--secondary-font);
+}
+
+.item-index {
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.item-text {
+  margin-top: 5px;
+  padding-bottom: 5px;
+}
+
+.view-details-btn {
+  background-image: var(--main-color7);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, transform 0.2s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.view-details-btn:hover {
+  background-color: var(--main-color3);
+  transform: translateY(-2px);
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination-controls button {
+  background-color: var(--main-color1);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.pagination-controls button:hover {
+  background-color: var(--main-color3);
+  transform: translateY(-2px);
+}
+
+.pagination-controls button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 1.2rem;
+  align-self: center;
+}
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure the overlay is on top */
+  pointer-events: auto; /* Enable interaction with the modal */
+  overflow: hidden; /* Prevent scrolling outside the modal */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 650px;
+  width: 100%;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-family: var(--secondary-font);
+  z-index: 10000; /* Ensure modal content is on top */
+  max-height: 80vh; /* Limit the modal height to 80% of the viewport height */
+  overflow-y: auto; /* Allows scrolling inside the modal if content overflows */
+  position: relative; /* Keeps the modal content relative within its container */
+  border-radius: 10px; /* Rounded corners for a polished look */
+}
+
+/* Modal Details */
+.modal-details {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 15px 0;
+  color: #333;
+  font-family: var(--secondary-font);
+  line-height: 1.6;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.modal-details:hover {
+  background-color: #e9ecef;
+  transform: translateX(5px);
+}
+
+.modal-details .label {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--main-color1);
+  font-family: var(--secondary-font);
+  text-transform: capitalize;
+}
+
+.modal-details .value {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--main-color4);
+  font-family: var(--secondary-font);
+  text-transform: capitalize;
+}
+
+
+/* Add spacing between the checkout details */
+.checkout-detail {
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+.close-modal-btn {
+  background-image: var(--main-color7);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  justify-content: center;
+  font-weight: 600;
+}
+
+
+
+
+/* Container for each product item */
+.orderproduct-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--main-color6);
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for product card */
+.orderproduct-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(255, 255, 255, 0.15);
+}
+
+/* Container for product details */
+.orderproduct-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  flex: 1;
+}
+
+/* Individual detail item */
+.detail-item {
+  flex: 1 1 calc(33.33% - 10px); /* Responsive grid layout for details */
+  margin: 5px 0;
+}
+
+.detail-title {
+  font-size: 15 px;
+  color: #aaa;
+  text-transform: capitalize;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-family: var(--secondary-font);
+}
+
+.detail-value {
+  font-size: 16px;
+  color: #f2f2f2;
+  font-weight: 350;
+  font-family: var(--secondary-font);
+
+}
+
+/* Product image */
+.orderproduct-img {
+  width: 120px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for image */
+.orderproduct-item:hover .orderproduct-img {
+  transform: scale(1.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .orderproduct-details {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .detail-item {
+    flex: 1 1 100%; /* Full width for each detail item */
+  }
+
+  .orderproduct-img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .orders-container {
+    padding: 15px;
+  }
+
+  .order-item {
+    padding: 10px;
+  }
+
+  .view-details-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .pagination-controls button {
+    padding: 10px 14px;
+  }
+
+  .modal-content {
+    padding: 25px;
+  }
+}

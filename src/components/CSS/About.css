@@ -1,0 +1,156 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
+
+:root{
+  --main-color1:#dc82a9;
+  --main-color2:#d3779b;
+  --main-color3:#c9638b;
+  --main-color4:#595959;
+  --main-color5:#7b7b7a;
+  --main-color6:#f3f6f4;
+  }
+
+/* classes images */
+
+.images-container{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  
+  }
+   .images-container .box{
+      position: relative;
+      overflow: hidden;
+  }
+  @media(min-width:768px){
+       .images-container .box{
+          -ms-flex-preferred-size: 50%;
+              flex-basis: 50%;
+      }
+  }
+  @media(min-width:1199px){
+       .images-container .box{
+          -ms-flex-preferred-size: 25%;
+              flex-basis: 25%;
+      }
+  }
+  
+   .images-container .box img{
+      margin-bottom: 10px;
+      max-width: 100%;
+      height: 90%;
+      -webkit-transition: -webkit-transform 0.5s;
+      transition: -webkit-transform 0.5s;
+      -o-transition: transform 0.5s;
+      transition: transform 0.5s;
+      transition: transform 0.5s, -webkit-transform 0.5s;
+      padding: 30px;
+      border-radius: 15px;
+      
+  }
+   .images-container .box:hover .caption
+  {
+  bottom: 0;
+  
+  }
+   .images-container .box:hover img{
+      -webkit-transform: rotate(3deg) scale(1.1);
+          -ms-transform: rotate(3deg) scale(1.1);
+              transform: rotate(3deg) scale(1.1);
+  }
+  
+   .images-container .box .caption{
+      position: absolute;
+      left: 0;
+      padding: 20px;
+      background-color: var(--color2);
+      max-width: 92%;
+      bottom: -120%;
+      -webkit-transition: 0.5s ease;
+      -o-transition: 0.5s ease;
+      transition: 0.5s ease;
+      background-color: var(--main-color6);
+  }
+   .images-container .box .caption h4{
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:var(--main-color3);
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 25px;
+  }
+   .images-container .box .caption p{
+  color: var(--main-color4);
+  font-weight: bold;
+  text-align: right;
+  }
+  
+  /* team */
+  
+  .team-card {
+      border-radius: 4px;
+      padding: 16px;
+      margin: 8px;
+      width: 230px;
+      text-align: center;
+      -webkit-transition: 0.6s ease-in-out;
+      -o-transition: 0.6s ease-in-out;
+      transition: 0.6s ease-in-out;
+      cursor: pointer;
+      margin-top: 30px;
+      
+    }
+    
+    .team-card:hover
+    {
+      -webkit-transform: translateY(-8px);
+          -ms-transform: translateY(-8px);
+              transform: translateY(-8px);
+      -webkit-box-shadow: 6px 8px 10px var(--main-color1);
+              box-shadow: 6px 8px 10px var(--main-color1);
+      color: var(--main-color1);
+    }
+    
+    .team-card h3{
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--main-color3);
+    }
+    .team-card p{
+      font-size: 14px;
+      font-weight: 500;
+      padding-top: 8px;
+      text-transform: capitalize;
+    }
+    .team-cards {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      gap: 30px;
+      /* background-image: linear-gradient(to right top, #f5f7f7, #b1b4b4, #727576, #393c3d, #000407); */
+      background-color: var(--color2);
+    }
+    
+    
+    
+    .team-image {
+      width: 103%;
+      height: 250px;
+      -o-object-fit:cover;
+         object-fit:cover;
+      border-radius: 50%;
+      margin-bottom: 8px;
+    }
+    

@@ -1,0 +1,126 @@
+:root {
+  --main-color1: #dc82a9;
+  --main-color2: #d3779b;
+  --main-color3: #c9638b;
+  --main-color4: #595959;
+  --main-color5: #7b7b7a;
+  --main-color6: #f3f6f4;
+  --main-color7: linear-gradient(to right, #7e3e5c, #3d1e30);
+  --main-color8: #8d4c5c;
+  --font-family: "Roboto", Arial, sans-serif;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--main-color6);
+  color: var(--main-color4);
+  margin: 0;
+  padding: 0;
+}
+
+.user-info_container {
+  margin: 20px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.user-info_container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--main-color3);
+  margin-bottom: 10px;
+}
+
+.user-info_container h3 {
+  font-size: 1.6rem;
+  color: var(--main-color2);
+  margin-bottom: 15px;
+}
+
+.shipping-address_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.shipping-address_wrapper input {
+  width: 100%;
+  max-width: 48%;
+  padding: 12px 10px;
+  font-weight: 500;
+  border: 1px solid #bbb;
+  outline: none;
+  border-radius: 10px;
+  background: var(--main-color6);
+  transition: all 0.3s ease-in-out;
+}
+
+.shipping-address_wrapper input:focus {
+  border-color: var(--main-color1);
+  background: #fff;
+  box-shadow: 0 0 5px var(--main-color1);
+}
+.payment-title{
+  margin-top: 15px;
+}
+.payment-method-select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  background: var(--main-color6);
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.payment-method-select:focus {
+  border-color: var(--main-color3);
+  box-shadow: 0 0 5px var(--main-color3);
+}
+
+.checkout-btn {
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 0;
+  padding: 12px 20px;
+  background-image: var(--main-color7);
+  color: white;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  display: block;
+  text-align: center;
+}
+
+.checkout-btn:hover {
+  background-color: var(--main-color4);
+  color: var(--main-color6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.checkout-btn:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .shipping-address_wrapper input {
+    max-width: 100%;
+  }
+
+  .checkout-btn {
+    max-width: 100%;
+  }
+}
