@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ShoppingBag, BookOpen, Users, Award, Star, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 export default function HomePage() {
   return (
@@ -17,14 +18,18 @@ export default function HomePage() {
               نمكن ذوي الاحتياجات الخاصة من خلال التعليم والتدريب والتسوق الآمن
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button size="lg" className="bg-primary hover:bg-primary/90">
-                <ShoppingBag className="mr-2 h-5 w-5" />
-                تسوق الآن
-              </Button>
-              <Button variant="outline" size="lg">
-                <BookOpen className="mr-2 h-5 w-5" />
-                استكشف الدورات
-              </Button>
+              <Link href="/products">
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  <ShoppingBag className="mr-2 h-5 w-5" />
+                  تسوق الآن
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button variant="outline" size="lg">
+                  <BookOpen className="mr-2 h-5 w-5" />
+                  استكشف الدورات
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -82,10 +87,12 @@ export default function HomePage() {
               <h2 className="text-3xl font-bold text-foreground mb-2">المنتجات المميزة</h2>
               <p className="text-muted-foreground">اكتشف أحدث المنتجات في متجر دليل</p>
             </div>
-            <Button variant="outline">
-              عرض الكل
-              <ArrowRight className="mr-2 h-4 w-4" />
-            </Button>
+            <Link href="/products">
+              <Button variant="outline">
+                عرض الكل
+                <ArrowRight className="mr-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -134,17 +141,21 @@ export default function HomePage() {
             ابدأ رحلتك معنا اليوم واكتشف عالماً من الفرص والإمكانيات
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary">
-              <Award className="mr-2 h-5 w-5" />
-              سجل في دورة
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
-            >
-              تواصل معنا
-            </Button>
+            <Link href="/scholarship">
+              <Button size="lg" variant="secondary">
+                <Award className="mr-2 h-5 w-5" />
+                سجل في دورة
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
+              >
+                تواصل معنا
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
