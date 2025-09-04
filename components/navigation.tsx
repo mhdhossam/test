@@ -29,8 +29,11 @@ export function Navigation() {
             <Link href="/products" className="text-foreground hover:text-primary transition-colors">
               المتجر
             </Link>
-            <Link href="/courses" className="text-foreground hover:text-primary transition-colors">
-              الدورات
+            <Link href="/services" className="text-foreground hover:text-primary transition-colors">
+              الخدمات
+            </Link>
+            <Link href="/scholarship" className="text-foreground hover:text-primary transition-colors">
+              المنح
             </Link>
             <Link href="/about" className="text-foreground hover:text-primary transition-colors">
               من نحن
@@ -74,11 +77,18 @@ export function Navigation() {
                 المتجر
               </Link>
               <Link
-                href="/courses"
+                href="/services"
                 className="text-foreground hover:text-primary transition-colors px-2 py-1"
                 onClick={() => setIsMenuOpen(false)}
               >
-                الدورات
+                الخدمات
+              </Link>
+              <Link
+                href="/scholarship"
+                className="text-foreground hover:text-primary transition-colors px-2 py-1"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                المنح
               </Link>
               <Link
                 href="/about"
