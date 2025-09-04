@@ -10,6 +10,7 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<{ error?: string }>
   signUp: (email: string, password: string, fullName: string) => Promise<{ error?: string }>
   signOut: () => Promise<void>
+  supabaseAvailable: boolean
 }
 
 const AuthContext = createContext<AuthContextType | null>(null)
@@ -17,33 +18,51 @@ const AuthContext = createContext<AuthContextType | null>(null)
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
-
-  const supabase = createClient()
+  const [supabaseAvailable, setSupabaseAvailable] = useState(false)
+  const [supabase, setSupabase] = useState<any>(null)
 
   useEffect(() => {
-    // Get initial session
-    const getSession = async () => {
+    try {
+      const client = createClient()
+      setSupabase(client)
+      setSupabaseAvailable(true)
+
+      // Get initial session
+      const getSession = async () => {
+        try {
+          const {
+            data: { session },
+          } = await client.auth.getSession()
+          setUser(session?.user ?? null)
+        } catch (error) {
+          console.error("[v0] Error getting session:", error)
+        }
+        setLoading(false)
+      }
+
+      getSession()
+
+      // Listen for auth changes
       const {
-        data: { session },
-      } = await supabase.auth.getSession()
-      setUser(session?.user ?? null)
+        data: { subscription },
+      } = client.auth.onAuthStateChange(async (event, session) => {
+        setUser(session?.user ?? null)
+        setLoading(false)
+      })
+
+      return () => subscription.unsubscribe()
+    } catch (error) {
+      console.warn("[v0] Supabase not available:", error)
+      setSupabaseAvailable(false)
       setLoading(false)
     }
-
-    getSession()
-
-    // Listen for auth changes
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
-      setUser(session?.user ?? null)
-      setLoading(false)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [supabase.auth])
+  }, [])
 
   const signIn = async (email: string, password: string) => {
+    if (!supabase || !supabaseAvailable) {
+      return { error: "خدمة المصادقة غير متاحة حالياً" }
+    }
+
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email,
@@ -61,6 +80,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   const signUp = async (email: string, password: string, fullName: string) => {
+    if (!supabase || !supabaseAvailable) {
+      return { error: "خدمة المصادقة غير متاحة حالياً" }
+    }
+
     try {
       const { error } = await supabase.auth.signUp({
         email,
@@ -84,10 +107,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }
 
   const signOut = async () => {
-    await supabase.auth.signOut()
+    if (supabase && supabaseAvailable) {
+      await supabase.auth.signOut()
+    }
   }
 
-  return <AuthContext.Provider value={{ user, loading, signIn, signUp, signOut }}>{children}</AuthContext.Provider>
+  return (
+    <AuthContext.Provider value={{ user, loading, signIn, signUp, signOut, supabaseAvailable }}>
+      {children}
+    </AuthContext.Provider>
+  )
 }
 
 export function useAuth() {
