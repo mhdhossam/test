@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { ErrorBoundary } from "react-error-boundary";
 
 // Secondary App Pages
 import { Home } from "./components/pages";
@@ -31,87 +32,115 @@ import ProductForm from "./E-Commerce/component/VendorForm/ProductForm";
 import ProtectedRoute from "./E-Commerce/auth/ProtectedRoute";
 import { AuthProvider } from "./E-Commerce/auth/AuthProvider";
 
+// Error Fallback Component
+const ErrorFallback: React.FC<{ error: Error; resetErrorBoundary: () => void }> = ({ error, resetErrorBoundary }) => (
+  <div className="error-fallback" style={{ padding: '20px', textAlign: 'center' }}>
+    <h2>Something went wrong:</h2>
+    <pre style={{ color: 'red' }}>{error.message}</pre>
+    <button onClick={resetErrorBoundary}>Try again</button>
+  </div>
+);
+
 const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/soon" element={<ComingSoon />} />
-          <Route path="/scholarship" element={<Scholarship />} />
-          <Route path="/scholarshipInfo" element={<ScholarshipInfo />} />
-          <Route path="/course1" element={<Course1 />} />
-          <Route path="/course2" element={<Course2 />} />
-          <Route path="/course3" element={<Course3 />} />
-          <Route path="/course4" element={<Course4 />} />
-          <Route path="/course5" element={<Course5 />} />
-          <Route path="/course6" element={<Course6 />} />
-          <Route path="/course7" element={<Course7 />} />
-          <Route element={<RootLayout />}>
-            <Route path="/home2" element={<Home2 />} />
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <AuthProvider>
+        <div className="App">
+          <Routes>
+            {/* Main Website Routes */}
             <Route path="/" element={<Home />} />
-            <Route
-              path="/checkout"
-              element={
-                <ProtectedRoute>
-                  <Checkout />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/wishlist"
-              element={
-                <ProtectedRoute>
-                  <Wishlist />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/order"
-              element={
-                <ProtectedRoute>
-                  <Order />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/vendordashboard"
-              element={
-                <ProtectedRoute>
-                  <VendorDashboard />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/productform"
-              element={
-                <ProtectedRoute>
-                  <ProductForm />
-                </ProtectedRoute>
-              }
-            />
-            <Route path="/explore/:category" element={<ExploreProduct />} />
-            <Route path="/category" element={<Category />} />
-            <Route path="/product/:id/" element={<Product />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/vendorRegister" element={<VendorRegister />} />
-          </Route>
-        </Routes>
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/soon" element={<ComingSoon />} />
+            <Route path="/scholarship" element={<Scholarship />} />
+            <Route path="/scholarshipInfo" element={<ScholarshipInfo />} />
+            <Route path="/course1" element={<Course1 />} />
+            <Route path="/course2" element={<Course2 />} />
+            <Route path="/course3" element={<Course3 />} />
+            <Route path="/course4" element={<Course4 />} />
+            <Route path="/course5" element={<Course5 />} />
+            <Route path="/course6" element={<Course6 />} />
+            <Route path="/course7" element={<Course7 />} />
+            
+            {/* E-Commerce Routes */}
+            <Route element={<RootLayout />}>
+              <Route path="/home2" element={<Home2 />} />
+              <Route
+                path="/checkout"
+                element={
+                  <ProtectedRoute>
+                    <Checkout />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/wishlist"
+                element={
+                  <ProtectedRoute>
+                    <Wishlist />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/order"
+                element={
+                  <ProtectedRoute>
+                    <Order />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/vendordashboard"
+                element={
+                  <ProtectedRoute>
+                    <VendorDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/productform"
+                element={
+                  <ProtectedRoute>
+                    <ProductForm />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/explore/:category" element={<ExploreProduct />} />
+              <Route path="/category" element={<Category />} />
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/vendorRegister" element={<VendorRegister />} />
+            </Route>
+          </Routes>
 
-        <Toaster
-          toastOptions={{
-            style: {
-              padding: "16px",
-              fontSize: "1.6rem",
-            },
-          }}
-        />
-      </div>
-    </AuthProvider>
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+                padding: "16px",
+                fontSize: "14px",
+                borderRadius: "8px",
+              },
+              success: {
+                style: {
+                  background: '#10B981',
+                },
+              },
+              error: {
+                style: {
+                  background: '#EF4444',
+                },
+              },
+            }}
+          />
+        </div>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 };
 
